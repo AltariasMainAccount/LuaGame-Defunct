@@ -3,6 +3,7 @@ local dmg = require 'var.dmg'
 local items = require 'var.item'
 local safestate = require 'states.aaa'
 local colors = require 'lib.ansicolors'
+local bosses = require 'lib.bosses'
 
 item = safestate.currentItem
 playerhp = hp.playerhealth
@@ -26,8 +27,8 @@ if selopt == "1" then
     dofile("game/game_fight.lua")
 elseif selopt == "2" then
     os.execute("clear")
-    print("Not done.\n")
-    dofile("game/game.lua")
+    print(colors("%{bright red}It's killing me, lol :')"))
+    dofile("game/game_bossloader.lua")
 elseif selopt == "3" then
     os.execute("clear")
     dofile("game/game_shop.lua")
@@ -54,8 +55,8 @@ elseif selopt == "6" then
     end
 elseif selopt == "debug6" then
     os.execute("clear")
-    print(colors("%{bright red}DEBUG_MENU"))    
-    dofile("game/game_fight.lua")
+    print(colors("%{bright red underline}DEBUG_MENU"))    
+    dofile("game/game_debug.lua")
 else
     os.execute("clear")
     print(colors("%{bright red}TODO: Error - Invalid Input"))
