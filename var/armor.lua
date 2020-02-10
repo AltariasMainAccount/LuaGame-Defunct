@@ -1,4 +1,4 @@
-local item2 = {
+local armor = {
     "None",
     "MoonFile Armor",
     "Passive Compiler",
@@ -15,4 +15,4 @@ local item2 = {
     "Operator Overcoat",
 }
 
-return item2
+return armor

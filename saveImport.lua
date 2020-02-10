@@ -1,6 +1,6 @@
 -- import game libraries
 local safestate = require 'states.aaa'
-local dmg = require 'var.dmg'
+local defaults = require 'states.defaultstates'
 
 
 -- import savefile and initiate certain variables -- 
@@ -32,8 +32,8 @@ safestate.currentitemID = tonumber(tbllines[9])
 safestate.currentArmorID = tonumber(tbllines[10])
 
 -- reset variables --
-safestate.currentDMG = dmg.playerDMG * safestate.currentitemID / 0.4
-safestate.currentDEF = dmg.playerDEF * safestate.currentArmorID / 0.4
+safestate.currentDMG = defaults.playerDMG * safestate.currentitemID / 0.4
+safestate.currentDEF = defaults.playerDEF * safestate.currentArmorID / 0.4
 safestate.currentHP = 100 * safestate.currentArmorID / 1.2
 
 -- go to main file --

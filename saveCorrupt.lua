@@ -1,30 +1,30 @@
 -- import game libraries
 local safestate = require 'states.aaa'
-local dmg = require 'var.dmg'
+local defaults = require 'states.defaultstates'
 local file
 
 -- import savefile and initiate certain variables -- 
 math.randomseed(os.time())
-corruptFile = math.random(100)
-if corruptFile > 0 and corruptFile <= 10 then
+CorruptFile = math.random(100)
+if CorruptFile > 0 and CorruptFile <= 10 then
     file = io.open("saveimport/corruptedsaves/corrupted1.txt")
-elseif corruptFile >= 11 and corruptFile <= 20 then
+elseif CorruptFile >= 11 and CorruptFile <= 20 then
     file = io.open("saveimport/corruptedsaves/corrupted2.txt")
-elseif corruptFile >= 21 and corruptFile <= 30 then
+elseif CorruptFile >= 21 and CorruptFile <= 30 then
     file = io.open("saveimport/corruptedsaves/corrupted3.txt")
-elseif corruptFile >= 31 and corruptFile <= 40 then
+elseif CorruptFile >= 31 and CorruptFile <= 40 then
     file = io.open("saveimport/corruptedsaves/corrupted4.txt")
-elseif corruptFile >= 41 and corruptFile <= 50 then
+elseif CorruptFile >= 41 and CorruptFile <= 50 then
     file = io.open("saveimport/corruptedsaves/corrupted5.txt")
-elseif corruptFile >= 51 and corruptFile <= 60 then
+elseif CorruptFile >= 51 and CorruptFile <= 60 then
     file = io.open("saveimport/corruptedsaves/corrupted6.txt")
-elseif corruptFile >= 61 and corruptFile <= 70 then
+elseif CorruptFile >= 61 and CorruptFile <= 70 then
     file = io.open("saveimport/corruptedsaves/corrupted7.txt")
-elseif corruptFile >= 71 and corruptFile <= 80 then
+elseif CorruptFile >= 71 and CorruptFile <= 80 then
     file = io.open("saveimport/corruptedsaves/corrupted8.txt")
-elseif corruptFile >= 81 and corruptFile <= 90 then
+elseif CorruptFile >= 81 and CorruptFile <= 90 then
     file = io.open("saveimport/corruptedsaves/corrupted9.txt")
-elseif corruptFile >= 91 and corruptFile <= 100 then
+elseif CorruptFile >= 91 and CorruptFile <= 100 then
     file = io.open("saveimport/corruptedsaves/corrupted10.txt")
 end
 
@@ -55,8 +55,8 @@ safestate.currentitemID = tonumber(tbllines[9])
 safestate.currentArmorID = tonumber(tbllines[10])
 
 -- reset variables --
-safestate.currentDMG = dmg.playerDMG * safestate.currentitemID / 0.4
-safestate.currentDEF = dmg.playerDEF * safestate.currentArmorID / 0.4
+safestate.currentDMG = defaults.playerDMG * safestate.currentitemID / 0.4
+safestate.currentDEF = defaults.playerDEF * safestate.currentArmorID / 0.4
 safestate.currentHP = safestate.currentHP * safestate.currentArmorID / 1.2
 
 -- go to main file --

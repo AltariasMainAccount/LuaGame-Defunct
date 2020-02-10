@@ -1,6 +1,5 @@
-local hp = require 'var.hp'
-local dmg = require 'var.dmg'
-local items = require 'var.item'
+local defaults = require 'states.defaultstates'
+local weapon = require 'var.weapon'
 local armor = require 'var.armor'
 local safestate = require 'states.aaa'
 local colors = require 'lib.ansicolors'
@@ -11,7 +10,7 @@ local level = require 'lib.leveling'
 money = safestate.currentMoney
 math.randomseed(os.time())
 drop = math.random(100)
-accurateHP = safestate.currentHP + safestate.currentDEF
+accurateHP = safestate.currentHP + safestate.currentDEF / 0.3
 enemyType = math.random(3)
   if enemyType == 1 then
     enemyTypeName = "Easy Enemy"
@@ -27,8 +26,8 @@ enemyType = math.random(3)
         print(colors("%{bright blue}Engage combat against a "..enemyTypeName..""))
         print(colors("%{bright blue}HP: "..accurateHP.." MP: "..safestate.currentMP..""))
         print(colors("%{bright blue}1. Attack with weapon\n2. Magic\n3.Run away"))
-        io.write("Choice: ")
-        fightchoice = io.read() 
+        io.write(colors("%{bright blue}Choice -> "))
+        fightchoice = io.read()
         if fightchoice == "1" then
             os.execute("clear")
             critchance = math.random(10)
@@ -46,14 +45,14 @@ enemyType = math.random(3)
         os.execute("sleep 1")
         elseif fightchoice == "2" then
             if safestate.currentMP < 10 then
-                os.execute("clear")            
+                os.execute("clear")
                 print(colors("%{bright blue}You struck the enemy with your weapon instead."))
                 updatedenemyHP = enemyHP - safestate.currentDMG
                 enemyHP = updatedenemyHP
             else
                 os.execute("clear")
-                print(colors("%{bright blue}1. Fire Spell 20MP\n2. Ice Spell 40MP\n3. Heal 10MP\n4. %{bright cyan}Cyan Flames [UP Spell, uses max MP]\n5. Focus [Regain 30 MP]"))
-                io.write("Choice: ")
+                print(colors("%{bright blue}1. Fire Spell 20MP\n2. Ice Spell 40MP\n3. Heal 10MP\n4. %{bright cyan}Cyan Flames %{bright blue}[UP Spell, uses max MP]\n5. Focus [Regain 30 MP]"))
+                io.write(colors("%{bright blue}Choice -> "))
                 spellchoice = io.read()
                     if spellchoice == "1" then
                         os.execute("clear")
@@ -85,7 +84,7 @@ enemyType = math.random(3)
                         print(colors("%{bright cyan}You used Cyan Flames."))
                         print(colors("%{bright cyan}You hit your Target deadon."))
                         enemyHP = enemyHP - 200
-                        mploss = safestate.currentMP - 100                        
+                        mploss = safestate.currentMP - 100
                         safestate.currentMP = mploss
                         os.execute("sleep 1")
                     elseif spellchoice == "5" then

@@ -1,18 +1,15 @@
-local hp = require 'var.hp'
-local dmg = require 'var.dmg'
-local items = require 'var.item'
+local default = require 'states.defaultstates'
 local safestate = require 'states.aaa'
 local colors = require 'lib.ansicolors'
-local bosses = require 'lib.bosses'
 
 item = safestate.currentItem
-playerhp = hp.playerhealth
+playerhp = default.playerStartHealth
 safestate.currrentItemID = 1
 battleOver = 0
 
 -- menu selection --
 print(colors("%{bright blue}- Game Menu -"))
-print(colors("%{bright red}- WARNING: The game doesn't get saved\nAfter you leave the game, your progress is lost forever."))
+print(colors("%{bright yellow}WARNING: The game doesn't get saved\nAfter you leave the game, your progress is lost forever.\nHowever, Save File importing exists [but is in beta]"))
 print(colors("%{bright blue}1. Fight Enemy"))
 print(colors("%{bright blue}2. Fight Bosses"))
 print(colors("%{bright blue}3. Shop"))
