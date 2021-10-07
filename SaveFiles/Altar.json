@@ -1,0 +1,17 @@
+{
+  "equipped": {
+    "accessory": "freedom_pin",
+    "armor": "coat",
+    "weapon": "stick"
+  },
+  "experience": 10,
+  "level": 1,
+  "name": "Altar",
+  "stats": {
+    "agi": 5,
+    "atk": 10,
+    "def": 10,
+    "hp": 100,
+    "mp": 100
+  }
+}

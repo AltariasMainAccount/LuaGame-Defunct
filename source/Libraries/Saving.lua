@@ -8,17 +8,23 @@ local file = require("source.Libraries.External.file")
 
 function saveModule.loadSave(name)
     json_data = file.jsonRead("SaveFiles/"..name..".json")
-    savestate["name"] = json_data["name"]
-    savestate["level"] = json_data["level"]
-    savestate["experience"] = json_data["experience"]
-    savestate["equipped"]["weapon"] = items["Weapons"][json_data["equipped"]["weapon"]]
-    savestate["equipped"]["armor"] = items["Armor"][json_data["equipped"]["armor"]]
-    savestate["equipped"]["accessory"] = items["Accessories"][json_data["equipped"]["accessory"]]
+    savestate.savedata["name"] = json_data["name"]
+    savestate.savedata["level"] = json_data["level"]
+    savestate.savedata["experience"] = json_data["experience"]
+    savestate.savedata["equipped"]["weapon"] = items["Weapons"][json_data["equipped"]["weapon"]]
+    savestate.savedata["equipped"]["armor"] = items["Armor"][json_data["equipped"]["armor"]]
+    savestate.savedata["equipped"]["accessory"] = items["Accessories"][json_data["equipped"]["accessory"]]
     savestate.updateStats()
 end
 
 function saveModule.saveGame(name)
+    file.jsonWrite("SaveFiles/"..name..".json", savestate.savedata)
+end
 
+function saveModule.newGame(name)
+    savestate.default["name"] = name
+    file.jsonWrite("SaveFiles/"..name..".json", savestate["default"])
+    savestate.updateStats()
 end
 
 return saveModule
