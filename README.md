@@ -1,2 +1,5 @@
-# LuaGame [Defunct build]
-Development is no longer continued unless CrescentShell needs something to make it better.
+# LuaGame Revived
+Woo! I got bored and now this is active again.
+Gonna patch some of the major bugs and make the code more efficient.
+
+I've learnt a lot and would like to see where I can get with this.

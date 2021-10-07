@@ -1,8 +1,24 @@
+-- Game Logic goes into this file --
+
 local gamescript = {}
-local weapon = require 'var.weapon'
-local armor = require 'var.armor'
-local safestate = require 'states.aaa'
-local colors = require 'lib.ansicolors'
+
+local function levelup()
+    levelup = "declarepls"
+    level = safestate.currentLevel
+    EXP = safestate.currentEXP
+    if battleOver == 1 then
+        safestate.currentEXP = EXP + 10
+        if EXP >= 100 then
+            print("Level Up!")
+            safestate.currentLevel = level + 1
+            print("New Level: "..safestate.currentLevel.."")
+            EXP = 0
+            safestate.currentEXP = EXP
+        else
+            print("Your Experience Points are "..safestate.currentEXP.."/100")
+        end
+    end
+end
 
 local function dropchance()
     math.randomseed(os.time())

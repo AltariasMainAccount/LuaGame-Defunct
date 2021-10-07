@@ -1,0 +1,10 @@
+{
+    "name": "BetaTest",
+    "level": 10,
+    "experience": 43,
+    "equipped": {
+        "weapon": "big_shot",
+        "armor": "spec_coat",
+        "accessory": "tech_pin"
+    }
+}

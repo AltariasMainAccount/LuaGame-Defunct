@@ -50,10 +50,6 @@ elseif selopt == "6" then
         os.execute("clear")
         dofile("game/game.lua")
     end
-elseif selopt == "debug6" then
-    os.execute("clear")
-    print(colors("%{bright red underline}DEBUG_MENU"))    
-    dofile("game/game_debug.lua")
 else
     os.execute("clear")
     print(colors("%{bright red}TODO: Error - Invalid Input"))

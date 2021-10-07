@@ -12,7 +12,7 @@ print(colors("%{bright cyan}Alty-Chan approves!"))
 print(colors("%{bright red}Type non-integers to leave!\n"))
 for i=2,accessoryTableSize do
     price = i * 1000
-    print(colors("%{bright blue}"..i - 1..". "..accessory[i].." - Price: "..price..""))
+    print(colors("%{bright blue}"..(i - 1)..". "..accessory[i].." - Price: "..price..""))
 end
 print("\n")
 io.write(colors("%{bright blue}Shop ->"))
